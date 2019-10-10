@@ -45,7 +45,7 @@ WORKDIR /usr/share/elasticsearch
 COPY --from=prep_files --chown=1000:0 /usr/share/elasticsearch /usr/share/elasticsearch
 ENV PATH /usr/share/elasticsearch/bin:$PATH
 
-COPY --chown=1000:0 bin/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+COPY --chown=1000:0 ./docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 # Openshift overrides USER and uses ones with randomly uid>1024 and gid=0
 # Allow ENTRYPOINT (and ES) to run even with a different user
