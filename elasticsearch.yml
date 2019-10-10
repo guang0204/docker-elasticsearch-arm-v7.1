@@ -1,0 +1,28 @@
+cluster.name: "docker-cluster-7.1"
+network.host: 10.199.2.68
+
+# custom config
+node.name: "node-1"
+#discovery.seed_hosts: ["127.0.0.1", "[::1]"]
+#cluster.initial_master_nodes: ["node-1"]
+# 开启跨域访问支持，默认为false
+http.cors.enabled: true
+# 跨域访问允许的域名地址，(允许所有域名)以上使用正则
+http.cors.allow-origin: /.*/
+xpack.ml.enabled: false
+# minimum_master_nodes need to be explicitly set when bound on a public IP
+# set to 1 to allow single node clusters
+# Details: https://github.com/elastic/elasticsearch/pull/17288
+discovery.zen.minimum_master_nodes: 1
+
+xpack.monitoring.elasticsearch.collection.enabled: true
+xpack.monitoring.collection.enabled: true
+xpack.security.enabled: true
+xpack.security.http.ssl.enabled: true
+xpack.security.http.ssl.verification_mode: none
+xpack.security.http.ssl.key: https_cert_key
+xpack.security.http.ssl.certificate: https_cert_crt
+xpack.security.transport.ssl.enabled: true
+xpack.security.transport.ssl.key: https_cert_key
+xpack.security.transport.ssl.certificate: https_cert_crt
+xpack.security.transport.ssl.verification_mode: none
